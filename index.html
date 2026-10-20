@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NOVA Sneakers</title>
+<style>
+:root{color-scheme:dark;--bg:#05060f;--text:#f2f3ff;--muted:#9aa0c8;--card:rgba(255,255,255,.06);--line:rgba(255,255,255,.12);--a:#7c5cff;--b:#00e0ff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:hidden}
+#stars{position:fixed;inset:0;width:100%;height:100%;z-index:0}
+.glow{position:fixed;inset:0;z-index:0;background:radial-gradient(circle at 70% 25%,rgba(124,92,255,.25),transparent 45%),radial-gradient(circle at 15% 80%,rgba(0,224,255,.15),transparent 40%);pointer-events:none}
+main,header,footer{position:relative;z-index:1}
+header{display:flex;justify-content:space-between;align-items:center;padding:20px 6vw}
+.logo{font-weight:800;letter-spacing:.25em;font-size:1.1rem}
+.logo span{color:var(--b)}
+nav a{color:var(--muted);text-decoration:none;margin-left:22px;font-size:.9rem}
+nav a:hover{color:var(--text)}
+.hero{display:grid;grid-template-columns:1fr 1.1fr;align-items:center;gap:30px;padding:5vh 6vw 8vh;min-height:78vh}
+.tag{display:inline-block;padding:6px 14px;border:1px solid var(--line);border-radius:99px;color:var(--b);font-size:.78rem;letter-spacing:.15em}
+h1{font-size:clamp(2.6rem,7vw,5.2rem);line-height:1;margin:18px 0;font-weight:800}
+h1 em{font-style:normal;background:linear-gradient(90deg,var(--a),var(--b));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--muted);max-width:42ch;line-height:1.6}
+.btns{display:flex;gap:14px;margin-top:28px;flex-wrap:wrap}
+.btn{padding:14px 28px;border-radius:99px;text-decoration:none;font-weight:600;font-size:.95rem;transition:.25s}
+.p{background:linear-gradient(90deg,var(--a),var(--b));color:#05060f}
+.p:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,224,255,.35)}
+.g{border:1px solid var(--line);color:var(--text)}
+.g:hover{background:var(--card)}
+.stage{position:relative;display:grid;place-items:center}
+.stage::before{content:"";position:absolute;width:75%;aspect-ratio:1;border-radius:50%;background:conic-gradient(from 0deg,var(--a),var(--b),var(--a));filter:blur(70px);opacity:.35}
+.stage svg{position:relative;width:100%;max-width:640px;transform:rotate(-12deg);filter:drop-shadow(0 30px 30px rgba(0,0,0,.6));animation:float 5s ease-in-out infinite}
+@keyframes float{50%{transform:rotate(-8deg) translateY(-18px)}}
+section{padding:6vh 6vw}
+h2{font-size:clamp(1.8rem,4vw,2.6rem);margin:0 0 30px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px;backdrop-filter:blur(8px);transition:.3s}
+.card:hover{transform:translateY(-8px);border-color:var(--b);box-shadow:0 18px 40px rgba(0,0,0,.5)}
+.card svg{width:100%;transform:rotate(-8deg);transition:.3s}
+.card:hover svg{transform:rotate(-2deg) scale(1.06)}
+.card h3{margin:14px 0 4px}
+.card small{color:var(--muted)}
+.row{display:flex;justify-content:space-between;align-items:center;margin-top:14px}
+.price{font-weight:700;font-size:1.2rem}
+.add{border:0;background:var(--text);color:var(--bg);padding:9px 16px;border-radius:99px;font-weight:600;cursor:pointer}
+.add:hover{background:var(--b)}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;text-align:center}
+.feat div{padding:24px;border-radius:18px;border:1px solid var(--line)}
+.feat b{display:block;font-size:2rem;color:var(--b)}
+.feat span{color:var(--muted);font-size:.9rem}
+footer{text-align:center;color:var(--muted);padding:40px 6vw;font-size:.85rem}
+@media(max-width:800px){.hero{grid-template-columns:1fr;text-align:center}.hero p{margin:auto}.btns{justify-content:center}nav{display:none}}
+@media(prefers-reduced-motion:reduce){.stage svg{animation:none}}
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas><div class="glow"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<symbol id="shoe" viewBox="0 0 300 150">
+<path d="M8 104 H292 V112 Q292 130 272 130 H30 Q8 130 8 110Z" fill="#f4f4ff"/>
+<path d="M8 104 H292" stroke="rgba(0,0,0,.2)" stroke-width="3"/>
+<path d="M18 104 V70 Q18 54 40 50 L92 42 Q112 36 126 14 L152 20 Q162 48 194 58 L252 70 Q292 80 292 104Z" style="fill:var(--c)"/>
+<path d="M200 62 L252 72 Q290 82 292 104 H220 Q214 80 200 62Z" style="fill:var(--d)"/>
+<path d="M60 104 Q100 70 170 60 Q190 80 205 104Z" style="fill:var(--d)" opacity=".9"/>
+<g stroke="#fff" stroke-width="3" stroke-linecap="round"><path d="M132 28 L150 40"/><path d="M144 24 L162 38"/><path d="M158 32 L174 46"/></g>
+<path d="M18 92 Q60 86 92 60" stroke="rgba(255,255,255,.55)" stroke-width="3" fill="none"/>
+</symbol>
+</defs>
+</svg>
+
+<header>
+<div class="logo">NOVA<span>.</span></div>
+<nav><a href="#coleccion">Colección</a><a href="#why">Por qué NOVA</a><a href="#contacto">Contacto</a></nav>
+</header>
+
+<main>
+<div class="hero">
+<div>
+<span class="tag">NUEVA COLECCIÓN 2026</span>
+<h1>Pisa entre <em>estrellas</em></h1>
+<p>Zapatillas diseñadas para quienes sueñan en grande. Comodidad ligera, diseño galáctico y un estilo que no pasa desapercibido.</p>
+<div class="btns"><a class="btn p" href="#coleccion">Ver colección</a><a class="btn g" href="#why">Conocer más</a></div>
+</div>
+<div class="stage"><svg viewBox="0 0 300 150" role="img" aria-label="Zapatilla NOVA Galaxy" style="--c:#7c5cff;--d:#00e0ff"><use href="#shoe"/></svg></div>
+</div>
+
+<section id="coleccion">
+<h2>Colección destacada</h2>
+<div class="grid">
+<div class="card"><svg viewBox="0 0 300 150" style="--c:#7c5cff;--d:#00e0ff"><use href="#shoe"/></svg><h3>Galaxy Runner</h3><small>Running · Violeta</small><div class="row"><span class="price">S/ 289</span><button class="add">Agregar</button></div></div>
+<div class="card"><svg viewBox="0 0 300 150" style="--c:#ff3d71;--d:#ffb703"><use href="#shoe"/></svg><h3>Supernova</h3><small>Urbana · Rojo fuego</small><div class="row"><span class="price">S/ 319</span><button class="add">Agregar</button></div></div>
+<div class="card"><svg viewBox="0 0 300 150" style="--c:#00c2a8;--d:#1b2a6b"><use href="#shoe"/></svg><h3>Aurora Flex</h3><small>Casual · Turquesa</small><div class="row"><span class="price">S/ 259</span><button class="add">Agregar</button></div></div>
+<div class="card"><svg viewBox="0 0 300 150" style="--c:#2b2f4a;--d:#9aa0c8"><use href="#shoe"/></svg><h3>Eclipse Night</h3><small>Premium · Negro</small><div class="row"><span class="price">S/ 349</span><button class="add">Agregar</button></div></div>
+</div>
+</section>
+
+<section id="why">
+<h2>Por qué NOVA</h2>
+<div class="feat">
+<div><b>250g</b><span>Ultra ligeras</span></div>
+<div><b>24/7</b><span>Comodidad total</span></div>
+<div><b>100%</b><span>Materiales reciclados</span></div>
+<div><b>30 días</b><span>Cambio gratis</span></div>
+</div>
+</section>
+</main>
+
+<footer id="contacto">© 2026 NOVA Sneakers · Envíos a todo el Perú · hola@novasneakers.pe</footer>
+
+<script>
+const c=document.getElementById("stars"),x=c.getContext("2d");let W,H,S=[],sh=null;
+function init(){W=c.width=innerWidth;H=c.height=innerHeight;const n=Math.floor(W*H/4500);
+S=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.4+.2,p:Math.random()*6.28,s:Math.random()*.02+.005}))}
+function draw(){x.clearRect(0,0,W,H);
+for(const s of S){s.p+=s.s;x.globalAlpha=.4+.6*Math.abs(Math.sin(s.p));x.fillStyle="#fff";x.beginPath();x.arc(s.x,s.y,s.r,0,6.28);x.fill()}
+if(!sh&&Math.random()<.006)sh={x:Math.random()*W,y:Math.random()*H*.4,l:0};
+if(sh){sh.x+=10;sh.y+=5;sh.l++;const g=x.createLinearGradient(sh.x,sh.y,sh.x-90,sh.y-45);g.addColorStop(0,"#fff");g.addColorStop(1,"transparent");
+x.globalAlpha=1;x.strokeStyle=g;x.lineWidth=2;x.beginPath();x.moveTo(sh.x,sh.y);x.lineTo(sh.x-90,sh.y-45);x.stroke();if(sh.l>60)sh=null}
+requestAnimationFrame(draw)}
+addEventListener("resize",init);init();draw();
+</script>
+</body>
+</html>
